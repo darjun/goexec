@@ -18,7 +18,7 @@ func CombinedOutput(cmd string, arg []string, opts ...Option) ([]byte, error) {
 }
 
 func CombinedOutputString(cmd string, arg []string, opts ...Option) (string, error) {
-	output, err := CombinedOutput(cmd, arg)
+	output, err := CombinedOutput(cmd, arg, opts...)
 	return string(output), err
 }
 
