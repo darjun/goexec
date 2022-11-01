@@ -24,6 +24,7 @@ func CombinedOutputString(cmd string, arg []string, opts ...Option) (string, err
 
 func Output(cmd string, arg []string, opts ...Option) ([]byte, error) {
 	c := exec.Command(cmd, arg...)
+	applyOptions(c, opts)
 	return c.Output()
 }
 
@@ -35,6 +36,7 @@ func OutputString(cmd string, arg []string, opts ...Option) (string, error) {
 func SeparateOutput(cmd string, arg []string, opts ...Option) ([]byte, []byte, error) {
 	var stdout, stderr bytes.Buffer
 	c := exec.Command(cmd, arg...)
+	applyOptions(c, opts)
 	c.Stdout = &stdout
 	c.Stderr = &stderr
 	err := c.Run()
