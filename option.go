@@ -15,7 +15,7 @@ func WithStdin(stdin io.Reader) Option {
 	}
 }
 
-func Without(stdout io.Writer) Option {
+func WithStdout(stdout io.Writer) Option {
 	return func(c *exec.Cmd) {
 		c.Stdout = stdout
 	}
